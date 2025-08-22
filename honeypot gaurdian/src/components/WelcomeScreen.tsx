@@ -27,7 +27,7 @@ const getVerdictChipClasses = (verdict: AnalysisResult['verdict']) => {
 };
 
 const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoading, scanHistory, onViewHistory }) => {
-  const [target, setTarget] = useState('nemesis-honeypot.');
+  const [target, setTarget] = useState('nemesis-honeypot');
   const [profile, setProfile] = useState<ScanProfile>('level_3_cognitive');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -44,16 +44,16 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoa
 
   return (
     <div className="animate-fade-in-up w-full">
-       <header className="text-center space-y-2 mb-10">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white text-glow" style={{'--glow-color': 'rgba(255,255,255,0.5)'} as React.CSSProperties}>Chimera 5.0</h1>
+       <header className="text-center space-y-2 mb-12">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white text-glow animate-flicker" style={{'--glow-color': 'rgba(0, 198, 255, 0.7)'} as React.CSSProperties}>Chimera 5.0</h1>
         <p className="text-base sm:text-lg md:text-xl text-gray-400">
           Cognitive Deception Analysis Engine
         </p>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
         <div className="lg:col-span-3">
-          <form onSubmit={handleSubmit} className="glass-pane space-y-8">
+          <form onSubmit={handleSubmit} className="glass-pane space-y-10">
             <div>
               <label htmlFor="target-input" className="block text-sm font-medium text-[#00c6ff] mb-2">Target URL or IP Address</label>
               <input
@@ -71,7 +71,7 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoa
             
             <div>
               <span className="block text-sm font-medium text-[#00c6ff] mb-4">Scan Profile</span>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
                 {scanProfiles.map(p => (
                   <button 
                     type="button"
@@ -98,7 +98,7 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoa
             <button
               type="submit"
               disabled={isLoading || !target}
-              className="relative w-full overflow-hidden flex items-center justify-center bg-[#00c6ff] text-gray-900 font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-[#00c6ff] disabled:bg-gray-600 disabled:cursor-not-allowed disabled:transform-none shimmer-button"
+              className="relative w-full overflow-hidden flex items-center justify-center bg-[#00c6ff] text-gray-900 font-bold py-4 px-6 rounded-lg text-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-[#00c6ff] disabled:bg-gray-600 disabled:text-gray-400 disabled:cursor-not-allowed disabled:transform-none shimmer-button"
             >
               {isLoading ? 'ANALYZING...' : 'INITIATE SCAN'}
             </button>
@@ -108,7 +108,7 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoa
         <div className="lg:col-span-2 space-y-8">
             <div className="glass-pane">
                  <h2 className="text-xl font-semibold text-white mb-4 text-glow" style={{'--glow-color': '#00c6ff'} as React.CSSProperties}>Examples</h2>
-                 <ul className="space-y-3 font-mono text-sm">
+                 <ul className="space-y-3 text-sm">
                   <li><button type="button" className="text-left text-gray-400 hover:text-white transition-colors" onClick={() => handleExampleClick('google.com', 'level_0_classic')}>• google.com (Legitimate)</button></li>
                   <li><button type="button" className="text-left text-gray-400 hover:text-white transition-colors" onClick={() => handleExampleClick('cowrie-canary', 'level_4_verification')}>• cowrie-canary (Test L4)</button></li>
                   <li><button type="button" className="text-left text-gray-400 hover:text-white transition-colors" onClick={() => handleExampleClick('nemesis-agentic', 'level_5_agentic')}>• nemesis-agentic (Test L5)</button></li>
@@ -121,7 +121,7 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoa
                       {scanHistory.map((scan, index) => (
                           <button key={index} type="button" className="w-full text-left bg-gray-900/50 p-3 rounded-lg border border-gray-800 flex justify-between items-center hover:bg-gray-800/70 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-[#00c6ff]" onClick={() => onViewHistory(scan)}>
                             <div className="flex-1 min-w-0">
-                                  <p className="text-white truncate font-mono">{scan.target}</p>
+                                  <p className="text-white truncate">{scan.target}</p>
                                   <p className="text-xs text-gray-400">{scan.scanProfile.replace(/_/g, ' ').replace(/(^\w|\s\w)/g, m => m.toUpperCase())}</p>
                             </div>
                               <div className="flex-shrink-0 ml-2">
@@ -131,7 +131,7 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ onStart, error, isLoa
                       ))}
                   </div>
               ) : (
-                  <div className="text-center text-gray-500 font-mono py-4">
+                  <div className="text-center text-gray-500 py-4">
                       <p>NO RECENT SCANS</p>
                   </div>
               )}

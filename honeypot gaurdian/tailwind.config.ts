@@ -20,6 +20,9 @@ export default {
 			}
 		},
 		extend: {
+            fontFamily: {
+                mono: ['"Fira Code"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+            },
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -94,11 +97,19 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'flicker': {
+                    '0%, 100%': { opacity: '1' },
+                    '50.1%': { opacity: '0.7' },
+                    '50.2%': { opacity: '1' },
+                    '75.1%': { opacity: '0.8' },
+                    '75.2%': { opacity: '1' },
+                },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'flicker': 'flicker 2.5s infinite',
 			}
 		}
 	},

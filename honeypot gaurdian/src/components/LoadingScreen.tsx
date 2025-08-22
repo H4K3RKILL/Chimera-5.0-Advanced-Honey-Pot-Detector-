@@ -31,7 +31,7 @@ const profileMessages: Record<ScanProfile, string[]> = {
 };
 
 const futuristicSpinner = (
-    <div className="relative w-16 h-16">
+    <div className="relative w-20 h-20">
         <div className="absolute inset-0 border-2 border-cyan-500/20 rounded-full"></div>
         <div className="absolute inset-2 border-2 border-cyan-500/30 rounded-full animate-spin" style={{animationDuration: '3s'}}></div>
         <div className="absolute inset-4 border-t-2 border-cyan-500 rounded-full animate-spin" style={{animationDuration: '1.5s'}}></div>
@@ -58,7 +58,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ target, profile }) => {
     <div className="flex flex-col items-center justify-center text-center animate-fade-in-up h-96">
       {futuristicSpinner}
       <h2 className="text-3xl font-bold text-white mt-8 mb-2">ANALYZING TARGET...</h2>
-      <p className="text-gray-300 bg-gray-900/80 px-3 py-1 rounded-md mb-4 font-mono">{target}</p>
+      <p className="text-gray-300 bg-gray-900/80 px-3 py-1 rounded-md mb-4">{target}</p>
       <p className="text-lg text-gray-400 transition-opacity duration-500 h-8">
         {messages[messageIndex]}
       </p>

@@ -73,9 +73,9 @@ const ThreatScoreGauge: React.FC<{ score: number }> = ({ score }) => {
         />
         <circle cx="60" cy="60" r="4" fill="white" />
       </svg>
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-4">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-2 sm:pb-4">
         <span className="text-3xl font-bold text-white">{score}</span>
-        <span className="text-xs text-gray-400">THREAT SCORE</span>
+        <span className="text-xs text-gray-400 uppercase tracking-widest">Threat Score</span>
       </div>
     </div>
   );
@@ -105,7 +105,7 @@ const AgentTranscript: React.FC<{transcript: TranscriptStep[]}> = ({ transcript 
                 return (
                     <div key={index} className="flex justify-start">
                         <div className="bg-gray-800/70 p-3 rounded-lg max-w-lg">
-                             <pre className="text-xs text-gray-300 whitespace-pre-wrap font-mono">{step.content}</pre>
+                             <pre className="text-xs text-gray-300 whitespace-pre-wrap">{step.content}</pre>
                         </div>
                     </div>
                 );
@@ -121,7 +121,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onReturnToDashboard
     <div className="w-full text-left animate-fade-in-up">
       <header className="text-center space-y-1 mb-10">
         <h1 className="text-4xl font-bold text-white">Forensic Report</h1>
-        <p className="text-gray-400 break-all font-mono">{result.target}</p>
+        <p className="text-gray-400 break-all">{result.target}</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -134,7 +134,7 @@ const ResultScreen: React.FC<ResultScreenProps> = ({ result, onReturnToDashboard
           </div>
           {result.scanProfile !== 'level_5_agentic' && (
             <div className="glass-pane flex justify-center items-center">
-              <div className="w-48 h-48">
+              <div className="w-40 h-40 md:w-48 md:h-48">
                 <ThreatScoreGauge score={result.score} />
               </div>
             </div>

@@ -5,7 +5,7 @@
 
 @layer base {
   body {
-    @apply bg-[#0a0f1f] text-gray-200 font-sans;
+    @apply bg-[#0a0f1f] text-gray-300 font-mono;
     min-height: 100vh;
     overflow-x: hidden; /* Hide horizontal scrollbars, allow vertical */
   }
@@ -38,12 +38,12 @@
 
   .scan-profile-card:hover {
     @apply border-[#00c6ff]/60 bg-gray-800/60 -translate-y-1;
-    box-shadow: 0 0 25px 3px rgba(0, 198, 255, 0.6);
+    box-shadow: 0 0 25px 3px rgba(0, 198, 255, 0.4);
   }
   
   .scan-profile-card[data-selected='true'] {
-    @apply border-2 border-[#00c6ff] bg-[#00c6ff]/30 -translate-y-1;
-    box-shadow: 0 0 25px 3px rgba(0, 198, 255, 0.6), inset 0 0 10px rgba(0, 198, 255, 0.5);
+    @apply border-2 border-[#00c6ff] bg-[#00c6ff]/20 -translate-y-1;
+    box-shadow: 0 0 25px 3px rgba(0, 198, 255, 0.5), inset 0 0 10px rgba(0, 198, 255, 0.4);
   }
 }
 
@@ -67,7 +67,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.6s ease;
   }
 
