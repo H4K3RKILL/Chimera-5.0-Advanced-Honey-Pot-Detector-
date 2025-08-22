@@ -1,0 +1,5 @@
+{
+  "name": "Honeypot Guardian",
+  "description": "Advanced honeypot detection system with AI-powered analysis. Detect active, passive, and hybrid honeypots with a feature-rich, client-side engine.",
+  "requestFramePermissions": []
+}
